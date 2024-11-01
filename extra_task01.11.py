@@ -19,6 +19,14 @@ def level_up_skill():
     else:
         print("Skill not found!")
 
+def delete_skill():
+    category = input("Enter the category you want to delete: ")
+    if category in character_skills:
+        del character_skills[category]
+        print(f"Category '{category}' has been deleted.")
+    else:
+        print("Category not found!")
+
 def display_skills():
     print(character_skills)
 
@@ -26,8 +34,8 @@ while True:
     ask = input('Continue? (+/-): ')
     if ask == '+':
         while True:
-            action = input("Do you want to Add Skill or Level Up Skill? Print 1 or 2: ")
-            if action in ['1', '2']:
+            action = input("Do you want to Add Skill (1), Level Up Skill (2), or Delete Category (3)? ")
+            if action in ['1', '2', '3']:
                 break
             else:
                 print("Invalid input!")
@@ -38,6 +46,8 @@ while True:
             add_skills(category, skill, level)
         elif action == '2':
             level_up_skill()
+        elif action == '3':
+            delete_skill()
         display_skills()
     else:
         break
