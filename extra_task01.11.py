@@ -25,7 +25,12 @@ def display_skills():
 while True:
     ask = input('Continue? (+/-): ')
     if ask == '+':
-        action = input("Do you want to Add Skill or Level Up Skill? Print 1 or 2: ")
+        while True:
+            action = input("Do you want to Add Skill or Level Up Skill? Print 1 or 2: ")
+            if action in ['1', '2']:
+                break
+            else:
+                print("Invalid input!")
         if action == '1':
             category = input("Category? ")
             skill = input("Skill? ")
